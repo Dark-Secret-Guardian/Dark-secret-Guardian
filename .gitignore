@@ -36,3 +36,10 @@ Thumbs.db
 # Codely CLI
 .codely-cli/
 .com-unity-codely.json
+
+# Build artifacts
+Aesheria_Submission/
+Aesheria_Submission.zip
+
+# Screenshots
+screenshots/

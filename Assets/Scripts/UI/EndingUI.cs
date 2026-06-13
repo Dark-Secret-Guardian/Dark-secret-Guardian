@@ -3,44 +3,66 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// 结局 UI —— 显示结局标题和描述，提供重新开始和退出按钮
+/// 由 GameManager.TriggerEnding 调用 ShowEnding 激活
+/// 显示时暂停游戏（Time.timeScale = 0）
+/// </summary>
 public class EndingUI : MonoBehaviour
 {
-    public TextMeshProUGUI titleText;
-    public TextMeshProUGUI descriptionText;
-    public Button restartButton;
-    public Button quitButton;
-    public GameObject endingPanel;
+    public TextMeshProUGUI titleText;       // 结局标题文本
+    public TextMeshProUGUI descriptionText;  // 结局描述文本
+    public Button restartButton;            // 重新开始按钮
+    public Button quitButton;               // 退出按钮
+    public GameObject endingPanel;           // 结局面板（整体显隐控制）
 
+    /// <summary>
+    /// Start：绑定按钮事件，默认隐藏结局面板
+    /// </summary>
     void Start()
     {
         restartButton.onClick.AddListener(RestartGame);
         quitButton.onClick.AddListener(QuitGame);
-        endingPanel.SetActive(false);
+        endingPanel.SetActive(false);    // 默认隐藏
     }
 
+    /// <summary>
+    /// 显示结局画面
+    /// 设置标题和描述文本，暂停游戏
+    /// </summary>
+    /// <param name="title">结局标题</param>
+    /// <param name="description">结局描述</param>
     public void ShowEnding(string title, string description)
     {
         titleText.text = title;
         descriptionText.text = description;
         endingPanel.SetActive(true);
-        Time.timeScale = 0;
+        Time.timeScale = 0;    // 暂停游戏
     }
 
+    /// <summary>
+    /// 重新开始游戏
+    /// 恢复时间缩放，清除存档数据，重新加载当前场景
+    /// </summary>
     void RestartGame()
     {
-        Time.timeScale = 1;
-        PlayerPrefs.DeleteKey("SaveData");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;    // 恢复时间缩放
+        PlayerPrefs.DeleteKey("SaveData");   // 清除存档
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   // 重新加载场景
     }
 
+    /// <summary>
+    /// 退出游戏
+    /// 根据平台执行不同的退出逻辑
+    /// </summary>
     void QuitGame()
     {
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;   // 编辑器模式：停止播放
 #elif UNITY_WEBGL
-        Application.ExternalEval("window.location.reload();");
+        Application.ExternalEval("window.location.reload();");   // WebGL：刷新页面
 #else
-        Application.Quit();
+        Application.Quit();   // 桌面平台：退出应用
 #endif
     }
 }

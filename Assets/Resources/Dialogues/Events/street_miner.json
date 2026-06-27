@@ -1,0 +1,34 @@
+{
+  "npcName": "醉酒矿工",
+  "portraitPath": "",
+  "nodes": [
+    {
+      "nodeId": "n0",
+      "speaker": "",
+      "description": "一个满身泥土的矿工摇摇晃晃地挡住你的路，手里举着一块拳头大的灵晶，脸上挂着得意的傻笑。",
+      "options": [
+        { "optionText": "祝贺他的收获", "targetNodeId": "n1", "actions": [ { "type": 0, "intValue": 3, "stringValue": "" } ] },
+        { "optionText": "提醒他灵脉有限", "targetNodeId": "n2", "actions": [ { "type": 2, "intValue": 3, "stringValue": "" }, { "type": 0, "intValue": -1, "stringValue": "" } ] },
+        { "optionText": "打听矿坑位置", "targetNodeId": "n3", "actions": [ { "type": 2, "intValue": 1, "stringValue": "" }, { "type": 0, "intValue": 2, "stringValue": "" } ] }
+      ]
+    },
+    {
+      "nodeId": "n1",
+      "speaker": "醉酒矿工",
+      "description": "\"哈哈！谢啦兄弟！这可是咱今天从新矿脉挖出来的，纯度高得很！明天再去挖，说不定还能挖到更大的！\"他拍着你的肩膀，酒气熏天。",
+      "options": []
+    },
+    {
+      "nodeId": "n2",
+      "speaker": "醉酒矿工",
+      "description": "矿工的笑容僵了一瞬，随即摆手道：\"嗨，你想太多了！灵脉那么大，挖不完的。再说了，不挖灵晶吃什么喝什么？\"他虽嘴上不在意，但你注意到他看了一眼手中的灵晶，眼神复杂了几分。",
+      "options": []
+    },
+    {
+      "nodeId": "n3",
+      "speaker": "醉酒矿工",
+      "description": "\"矿坑？嘿嘿，就在后山北坡，顺着溪流往上走就能看到。不过那地方现在坑洞遍地，你小心脚下别踩空了。\"他醉醺醺地比划着方向。",
+      "options": []
+    }
+  ]
+}

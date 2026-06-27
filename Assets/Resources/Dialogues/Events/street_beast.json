@@ -1,0 +1,42 @@
+{
+  "npcName": "受伤灵兽",
+  "portraitPath": "",
+  "nodes": [
+    {
+      "nodeId": "n0",
+      "speaker": "",
+      "description": "街角传来微弱的呜咽声。你循声望去，一只巴掌大的小灵兽蜷缩在木箱后面，浑身绒毛暗淡，后腿似乎受了伤，正用怯生生的眼睛望着你。",
+      "options": [
+        { "optionText": "救助它", "targetNodeId": "n1", "actions": [ { "type": 1, "intValue": 5, "stringValue": "" }, { "type": 3, "intValue": 5, "stringValue": "" }, { "type": 0, "intValue": -2, "stringValue": "" } ] },
+        { "optionText": "绕道而行", "targetNodeId": "n2", "actions": [ { "type": 2, "intValue": -2, "stringValue": "" } ] },
+        { "optionText": "带去找墨衡治疗", "targetNodeId": "n3", "actions": [ { "type": 3, "intValue": 3, "stringValue": "" }, { "type": 2, "intValue": 3, "stringValue": "" } ] }
+      ]
+    },
+    {
+      "nodeId": "n1",
+      "speaker": "",
+      "description": "你蹲下身，小心翼翼地将小灵兽捧起。它的身体微微颤抖，但感受到你的体温后渐渐安静下来。你用随身的水囊为它清洗了伤口，又撕下布条简单包扎。小灵兽舔了舔你的手指，眼中泛起微光。",
+      "options": []
+    },
+    {
+      "nodeId": "n2",
+      "speaker": "",
+      "description": "你犹豫了一下，最终转身离开。身后的小灵兽发出一声低弱的哀鸣，像是在问：为什么没有人愿意停下来？",
+      "options": []
+    },
+    {
+      "nodeId": "n3",
+      "speaker": "",
+      "description": "你小心地将灵兽裹在衣襟里带到交易所。墨衡看了一眼，叹道：\"又是矿坑塌方伤到的……这种事越来越多了。\"他从柜台下取出药粉敷在灵兽伤口上，灵兽渐渐恢复了几分精神。",
+      "options": [
+        { "optionText": "谢谢墨衡", "targetNodeId": "n3b", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n3b",
+      "speaker": "墨衡",
+      "description": "\"谢什么，举手之劳。不过你若真想帮这些灵兽，就该去源头看看——矿坑无序开采，它们的栖息地都快没了。\"墨衡将灵兽放在一个铺了软布的箱子里，它回头望了你一眼，似乎在道谢。",
+      "options": []
+    }
+  ]
+}

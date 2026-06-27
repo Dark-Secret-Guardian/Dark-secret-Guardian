@@ -1,0 +1,34 @@
+{
+  "npcName": "黑市商人",
+  "portraitPath": "",
+  "nodes": [
+    {
+      "nodeId": "n0",
+      "speaker": "",
+      "description": "一个戴着兜帽的人从巷子深处招手，压低声音说：\"嘿，旅人，想看看好货吗？刚从矿坑里挖出来的高纯灵晶，市面上一半的价。\"",
+      "options": [
+        { "optionText": "购买灵晶矿样", "targetNodeId": "n1", "actions": [ { "type": 0, "intValue": 5, "stringValue": "" }, { "type": 1, "intValue": -5, "stringValue": "" } ] },
+        { "optionText": "拒绝交易", "targetNodeId": "n2", "actions": [ { "type": 3, "intValue": 2, "stringValue": "" } ] },
+        { "optionText": "向镇守举报", "targetNodeId": "n3", "actions": [ { "type": 0, "intValue": -3, "stringValue": "" }, { "type": 3, "intValue": 5, "stringValue": "" } ] }
+      ]
+    },
+    {
+      "nodeId": "n1",
+      "speaker": "黑市商人",
+      "description": "商人将一块剔透的灵晶塞进你手里，咧嘴笑道：\"明智的选择。不过提醒你，这些灵晶来自深山老脉，挖完一块少一块……算了，不说这些扫兴话。\"",
+      "options": []
+    },
+    {
+      "nodeId": "n2",
+      "speaker": "黑市商人",
+      "description": "商人耸耸肩，缩回巷子阴影里：\"不买没关系，有的是人排着队要。不过你这人……倒是有点意思。\"",
+      "options": []
+    },
+    {
+      "nodeId": "n3",
+      "speaker": "",
+      "description": "你找到镇守举报了黑市商人。镇守匆匆赶去巷子，但商人早已消失无踪。镇守谢过你的警觉，但周围几个商贩对你投来复杂的目光。",
+      "options": []
+    }
+  ]
+}

@@ -10,6 +10,8 @@ using Aesheria.Combat;
 /// </summary>
 public class QuestManager : MonoBehaviour
 {
+    public static QuestManager Instance { get; private set; }
+
     public List<QuestNode> allNodes;    // 所有任务节点列表
     public QuestNode currentNode;        // 当前激活的节点
 
@@ -19,6 +21,17 @@ public class QuestManager : MonoBehaviour
     /// 任务节点变化事件，供 QuestUI 监听以刷新界面
     /// </summary>
     public event System.Action OnQuestChanged;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     /// <summary>
     /// Start：初始化 GameManager 引用，加载任务数据，定位起始节点
@@ -305,6 +318,20 @@ public class QuestManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 执行一组任务动作（公开方法，供 NPC 对话系统调用）
+    /// NPC 对话选项选中后调用此方法执行数值变化、战斗等动作
+    /// 不会改变 QuestManager 当前主线节点
+    /// </summary>
+    public void ExecuteActions(List<QuestAction> actions)
+    {
+        if (actions == null) return;
+        foreach (var action in actions)
+        {
+            ExecuteAction(action);
+        }
+    }
+
+    /// <summary>
     /// 执行单个任务动作
     /// 根据动作类型调用对应的 GameManager 方法
     /// </summary>
@@ -347,6 +374,11 @@ public class QuestManager : MonoBehaviour
                 {
                     Debug.LogWarning($"未找到敌人数据: {action.stringValue}");
                 }
+                break;
+
+            // 设置任务标志（内存中的静态字典，重启自动重置）
+            case QuestAction.ActionType.SetQuestFlag:
+                QuestState.SetFlag(action.stringValue);
                 break;
         }
     }

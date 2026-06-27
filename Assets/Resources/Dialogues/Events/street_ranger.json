@@ -1,0 +1,42 @@
+{
+  "npcName": "护林老人",
+  "portraitPath": "",
+  "nodes": [
+    {
+      "nodeId": "n0",
+      "speaker": "",
+      "description": "一位白发老者站在街边，手持一沓手抄传单，向路人呼吁减少灵脉开采。他的声音沙哑却恳切。",
+      "options": [
+        { "optionText": "认真听他讲", "targetNodeId": "n1", "actions": [ { "type": 2, "intValue": 5, "stringValue": "" }, { "type": 3, "intValue": 3, "stringValue": "" } ] },
+        { "optionText": "接过传单就走了", "targetNodeId": "n2", "actions": [ { "type": 2, "intValue": 2, "stringValue": "" } ] },
+        { "optionText": "不感兴趣，绕开", "targetNodeId": "n3", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n1",
+      "speaker": "护林老人",
+      "description": "老者眼睛一亮，拉住你认真讲道：\"年轻人愿意听，太好了！你看这灵脉走势图——\"他展开一张手绘的地图，上面标注着密密麻麻的灵脉线路，其中大半已被红线划去。\"这些红线，都是已经枯竭的支脉。再这样挖下去，主干也撑不了几年了。\"",
+      "options": [
+        { "optionText": "继续听", "targetNodeId": "n1b", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n1b",
+      "speaker": "护林老人",
+      "description": "\"我守了后山四十年，亲眼看着青山变秃、灵泉变浊。古树青檀还在苦苦支撑，但它一个人扛不住啊。如果你有心，去帮帮它，也帮帮这片土地。\"老者将传单递给你，上面写着：\"取之有度，用之有节，方能长久。\"",
+      "options": []
+    },
+    {
+      "nodeId": "n2",
+      "speaker": "护林老人",
+      "description": "老者叹了口气，将传单塞进你手里：\"至少……拿着看看吧。改变从了解开始。\"",
+      "options": []
+    },
+    {
+      "nodeId": "n3",
+      "speaker": "",
+      "description": "你绕开老人继续走。身后传来他疲惫的声音：\"又一个不愿意听的……灵脉不会等人的啊。\"",
+      "options": []
+    }
+  ]
+}

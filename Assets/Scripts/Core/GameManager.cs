@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int awakening;    // 觉醒值：对灵脉本质的理解深度
     [SerializeField] public int guardianship; // 守护值：对自然平衡的投入程度
 
+    // ========== 货币 ==========
+    [SerializeField] public int spiritCrystals = 20; // 灵晶：交易货币
+
     // ========== 角色与战斗引用 ==========
     public CharacterAttributes characterAttributes; // 玩家角色属性（D&D 5e 六项属性）
     public Combatant playerCombatant;               // 玩家战斗单位（HP、AC、攻击等）
@@ -49,11 +52,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        // 初始数值设定：繁荣 50，生态 75，觉醒/守护 0
+        // 初始数值设定：四维均不为0，任意一个归零则触发结局
         prosperity = 50;
         ecology = 75;
-        awakening = 0;
-        guardianship = 0;
+        awakening = 10;
+        guardianship = 10;
         lastEcologyLevel = GetEcologyLevel(ecology);
 
         // 创建两个可用行动
@@ -62,6 +65,12 @@ public class GameManager : MonoBehaviour
 
         // 根据角色属性初始化战斗数值
         InitializePlayerCombatant();
+
+        // 初始化四维数值 HUD
+        StatsHUDUI.EnsureExists();
+
+        // 初始化 AI DM 管理器
+        AIDMManager.EnsureExists();
     }
 
     /// <summary>
@@ -125,10 +134,22 @@ public class GameManager : MonoBehaviour
 
         // 广播数值变化事件，通知所有 UI 刷新
         OnValuesChanged?.Invoke();
+
+        // 任意一维归零 → 触发结局
+        if (prosperity <= 0 || ecology <= 0 || awakening <= 0 || guardianship <= 0)
+        {
+            TriggerEnding();
+        }
     }
 
     /// <summary>
-    /// 根据生态值返回对应的等级（0-4）
+    /// 增减灵晶（交易货币）
+    /// </summary>
+    public void AddSpiritCrystals(int amount)
+    {
+        spiritCrystals = Mathf.Max(0, spiritCrystals + amount);
+        OnValuesChanged?.Invoke();
+    }
     /// 4=繁荣期, 3=警示期, 2=危机期, 1=崩塌期, 0=死寂期
     /// </summary>
     private int GetEcologyLevel(int value)
@@ -325,12 +346,10 @@ public class GameManager : MonoBehaviour
         var ending = EndingManager.DetermineEnding(this);
         string title = EndingManager.GetEndingTitle(ending);
         string description = EndingManager.GetEndingDescription(ending, this);
+        Color bgColor = EndingManager.GetEndingColor(ending);
 
-        // 查找并显示结局 UI（包括未激活的对象）
-        EndingUI ui = FindObjectOfType<EndingUI>(true);
-        if (ui != null)
-        {
-            ui.ShowEnding(title, description);
-        }
+        // 显示结局 UI（纯代码单例，自动创建）
+        EndingUI.EnsureExists();
+        EndingUI.Instance?.ShowEnding(title, description, bgColor);
     }
 }

@@ -1,0 +1,101 @@
+{
+  "npcName": "老板娘·红袖",
+  "portraitPath": "Characters/Portraits/tavern",
+  "startNodeId": "n0",
+  "nodes": [
+    {
+      "nodeId": "n0",
+      "speaker": "红袖",
+      "description": "客官一路奔波辛苦了，来杯清酿歇歇脚？最近镇上来往的采灵人越来越多，山里的光景一年不如一年咯。",
+      "options": [
+        { "optionText": "【询问山林变故】山林怎么衰败了？", "targetNodeId": "n1", "actions": [ { "type": 1, "intValue": -5, "stringValue": "" } ] },
+        { "optionText": "【接取任务】我想找点活计，你这里有任务吗？", "targetNodeId": "n2", "actions": [ { "type": 0, "intValue": 3, "stringValue": "" } ] },
+        { "optionText": "【闲聊缓和】此地看着还算安稳，何来衰败一说？", "targetNodeId": "n3", "actions": [ { "type": 2, "intValue": 2, "stringValue": "" } ] }
+      ]
+    },
+    {
+      "nodeId": "n1",
+      "speaker": "红袖",
+      "description": "都是灵脉开采闹的。前些年大家发现地下灵晶能换钱，一窝蜂往山里钻，砍树挖脉。灵脉是草木的根，脉断了，古树、野花、走兽都活不下去。我们酒馆靠山中清泉酿酒，如今泉水都淡了几分。",
+      "options": [
+        { "optionText": "继续说", "targetNodeId": "n1b", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n1b",
+      "speaker": "红袖",
+      "description": "前几日我去后山，见到古树青檀的枝干都落了枯叶，它守着整片灵脉源头，怕是撑不了多久。如果你有心，不妨去帮它疏通灵脉，也算积一份善果。",
+      "options": [
+        { "optionText": "【接下修复灵脉任务】我这就去后山看看", "targetNodeId": "n4", "actions": [] },
+        { "optionText": "改日再议", "targetNodeId": "n_end", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n2",
+      "speaker": "红袖",
+      "description": "正巧有一桩要紧事！后山灵脉淤堵，古树青檀日渐衰弱，若是灵脉彻底断绝，咱们镇子的生计、交易所的灵晶生意全都要垮。我给你引路，你去山里帮青檀疏导灵脉即可。",
+      "options": [
+        { "optionText": "继续说", "targetNodeId": "n2b", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n2b",
+      "speaker": "红袖",
+      "description": "只是路上你多留意，随处可见采灵人丢弃的废弃矿坑，那些都是透支自然留下的烂摊子。",
+      "options": [
+        { "optionText": "明白了，我这就出发", "targetNodeId": "n_end", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n3",
+      "speaker": "红袖",
+      "description": "表面安稳罢了。现在家家户户靠挖灵晶换银钱，看似日子红火，可山里草木成片枯死，灵脉逐年枯竭。等灵脉耗尽，再多钱财也换不回绿水青山。那位古树精灵青檀，已经独自守了这片土地百年。",
+      "options": [
+        { "optionText": "【我想去见见古树青檀】", "targetNodeId": "n4", "actions": [] },
+        { "optionText": "改日再议", "targetNodeId": "n_end", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n4",
+      "speaker": "红袖",
+      "description": "好，那你去野外找青檀吧。路上小心，山里不比镇上太平。",
+      "options": [
+        { "optionText": "出发", "targetNodeId": "n_end", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n_end",
+      "speaker": "红袖",
+      "description": "好嘞，酒馆的门永远为你开着，随时回来坐坐。",
+      "options": []
+    },
+    {
+      "nodeId": "t0",
+      "speaker": "红袖",
+      "description": "看你身上带着林间灵气，想来是帮青檀处理了灵脉淤堵？采灵人只顾眼前利益，幸好还有你愿意兼顾自然。若是后续挖到高阶灵晶，可去城中灵脉交易所找墨衡兑换物资。",
+      "options": [
+        { "optionText": "【追问墨衡】墨衡此人可靠吗？", "targetNodeId": "t1", "actions": [] },
+        { "optionText": "【感慨现状】人类与自然当真无法共存？", "targetNodeId": "t2", "actions": [] },
+        { "optionText": "【领取酒馆奖励】收下任务酬劳", "targetNodeId": "t3", "actions": [ { "type": 0, "intValue": 10, "stringValue": "" } ] }
+      ]
+    },
+    {
+      "nodeId": "t1",
+      "speaker": "红袖",
+      "description": "墨衡这人……精明，但不坏。他是交易所的会长，做的是灵晶买卖，但心里也清楚灵脉不是取之不尽的。你若去找他，别太天真，也别太防备，生意归生意，人情归人情。",
+      "options": []
+    },
+    {
+      "nodeId": "t2",
+      "speaker": "红袖",
+      "description": "谁说没法共存呢？只是现在大家都被灵晶的利益迷了眼，忘了灵脉才是根。我在这里酿酒、待客，也只是想守住这一方泉水的清冽罢了。也许有一天，人能学会只取所需、不贪不夺，那时候山和水都会回来的。",
+      "options": []
+    },
+    {
+      "nodeId": "t3",
+      "speaker": "红袖",
+      "description": "这是你应得的，拿着这些灵晶去交易所看看吧，墨衡那边或许有你需要的东西。",
+      "options": []
+    }
+  ]
+}

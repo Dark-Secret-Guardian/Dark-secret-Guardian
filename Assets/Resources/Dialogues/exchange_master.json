@@ -1,0 +1,74 @@
+{
+  "npcName": "会长·墨衡",
+  "portraitPath": "Characters/Portraits/exchange",
+  "startNodeId": "n0",
+  "nodes": [
+    {
+      "nodeId": "n0",
+      "speaker": "墨衡",
+      "description": "远道而来的旅人，我是墨衡，整片区域唯一的灵脉交易所会长。世间运转全靠灵晶——地底灵脉凝结而成，可锻造器物、滋养田地、兑换银钱，也是支撑村镇繁荣的根基。",
+      "options": [
+        { "optionText": "【交易资源】我想用灵晶兑换物资", "targetNodeId": "trade_panel", "actions": [] },
+        { "optionText": "【询问灵脉本质】灵晶源源不断，为何山林会衰败？", "targetNodeId": "n2", "actions": [] },
+        { "optionText": "【打听古树青檀】你可知后山的古树精灵？", "targetNodeId": "n3", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n1",
+      "speaker": "墨衡",
+      "description": "常规交易规则：低阶灵晶兑换耕种、疏通灵脉的基础道具；高阶灵晶可换取加速作物生长、滋养草木的珍稀材料。提醒你一句——过度开采灵晶，短期能让村镇繁荣暴涨，但会直接透支生态平衡，灵脉枯竭后再无交易物资，得不偿失。",
+      "options": [
+        { "optionText": "了解了", "targetNodeId": "n0b", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n2",
+      "speaker": "墨衡",
+      "description": "灵脉是天地循环的枢纽，存在一套制衡法则：繁荣值代表人类文明发展，开采灵晶、交易物资即可提升；生态值代表自然生机，草木生长、疏通灵脉即可提升；觉醒值决定最终结局，看透开采利弊、平衡人与自然方可提升。三者相互牵制：一味堆高繁荣，生态会持续暴跌；只顾守护山林，百姓失去生计繁荣归零；唯有均衡发展，才能触发完美结局。",
+      "options": [
+        { "optionText": "继续说", "targetNodeId": "n2b", "actions": [ { "type": 2, "intValue": 5, "stringValue": "" } ] }
+      ]
+    },
+    {
+      "nodeId": "n2b",
+      "speaker": "墨衡",
+      "description": "如今多数采灵人只追逐繁荣，无视生态损耗，灵脉循环断裂，才会出现枯山死水。这便是红袖叹息的缘由，也是古树青檀日渐衰弱的根源。",
+      "options": [
+        { "optionText": "原来如此", "targetNodeId": "n0b", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n3",
+      "speaker": "墨衡",
+      "description": "青檀是灵脉的本源化身，它活着，整片大地才能持续产出灵晶。我做交易，自然不希望它消亡。可百姓要生存，开采灵晶是刚需。人类求繁荣，古树守生态，二者天生矛盾，如何取舍，全看你这位旅人的选择。",
+      "options": [
+        { "optionText": "有没有两全之法？", "targetNodeId": "n3b", "actions": [ { "type": 2, "intValue": 3, "stringValue": "" } ] }
+      ]
+    },
+    {
+      "nodeId": "n3b",
+      "speaker": "墨衡",
+      "description": "若你的觉醒数值足够高，或许能找到两全之法。红袖常说'灵脉是草木的根'，青檀守着灵脉源头已逾百年——你们若能同时说服青檀接受有限开采，又让采灵人学会节制，这片土地或许还有救。",
+      "options": [
+        { "optionText": "我会试试", "targetNodeId": "n0b", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n0b",
+      "speaker": "墨衡",
+      "description": "还有其他事吗？灵晶的生意永远开门，但灵脉的健康可等不了太久。",
+      "options": [
+        { "optionText": "【交易资源】我想用灵晶兑换物资", "targetNodeId": "trade_panel", "actions": [] },
+        { "optionText": "【询问灵脉本质】灵晶源源不断，为何山林会衰败？", "targetNodeId": "n2", "actions": [] },
+        { "optionText": "【打听古树青檀】你可知后山的古树精灵？", "targetNodeId": "n3", "actions": [] },
+        { "optionText": "告辞", "targetNodeId": "n_end", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n_end",
+      "speaker": "墨衡",
+      "description": "慢走。记住，过度开采的繁荣是镜花水月，真正的富足在于平衡。",
+      "options": []
+    }
+  ]
+}

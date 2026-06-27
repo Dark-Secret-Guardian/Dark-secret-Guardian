@@ -1,0 +1,97 @@
+{
+  "npcName": "古树之灵·青檀",
+  "portraitPath": "Characters/Portraits/wildness",
+  "startNodeId": "n0",
+  "nodes": [
+    {
+      "nodeId": "n0",
+      "speaker": "青檀",
+      "description": "……又一个追逐灵晶的人类。你是来开采，还是来弥补？世间万物，索取容易，偿还艰难。",
+      "options": [
+        { "optionText": "【表明来意】我受红袖所托，前来疏通淤堵灵脉", "targetNodeId": "n1", "actions": [] },
+        { "optionText": "【内心反思】人类不断开采灵脉，是否终究会毁灭这片土地？", "targetNodeId": "n2", "actions": [] },
+        { "optionText": "【功利提问】修复灵脉，能换取更多灵晶提升村镇繁荣吗？", "targetNodeId": "n3", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n1",
+      "speaker": "青檀",
+      "description": "红袖……她是个好姑娘，一直守着那口山泉酿酒，泉水淡了，她的酒也跟着失了味道。你愿意停下索取，选择修补裂痕，这已不同于那些只知采挖的采灵人。灵脉循环本是生生不息，人类只取不予，循环才会破碎。",
+      "options": [
+        { "optionText": "我该怎么做？", "targetNodeId": "n4", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n2",
+      "speaker": "青檀",
+      "description": "毁灭从不是一瞬之事，是日复一日无止境的索取。有两条路摆在世人面前：其一，只顾开采繁荣，等到灵脉彻底枯萎才仓促补救，是绝大多数人的常规命运；其二，早早看清平衡之道，一边守护自然，一边兼顾人类生计，便能提前觉醒，解锁大地赠予的隐藏结局。选择权，从来握在每一个踏足山林的人手里。",
+      "options": [
+        { "optionText": "我想选择第二条路", "targetNodeId": "n2b", "actions": [ { "type": 2, "intValue": 20, "stringValue": "" } ] },
+        { "optionText": "我需要先帮红袖疏通灵脉", "targetNodeId": "n4", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n2b",
+      "speaker": "青檀",
+      "description": "你的心已经醒了。那么，将手放在我的根须上，感受灵脉的流向，引导淤堵的灵气重新流动。这一次，你不是在完成任务，而是在修补人与大地之间的隔阂。",
+      "options": [
+        { "optionText": "（疏通灵脉）", "targetNodeId": "n5", "actions": [ { "type": 1, "intValue": 15, "stringValue": "" } ] }
+      ]
+    },
+    {
+      "nodeId": "n3",
+      "speaker": "青檀",
+      "description": "原来你与那些采灵人并无两样。修复灵脉只为换取更多可供开采的晶石，治标不治本。短暂的繁荣，换不来长久生机。等我根系彻底枯萎，再无灵晶可供交易，那时你们才会明白——但为时已晚。",
+      "options": [
+        { "optionText": "我不是这样的人，请给我机会", "targetNodeId": "n3b", "actions": [ { "type": 1, "intValue": -10, "stringValue": "" } ] }
+      ]
+    },
+    {
+      "nodeId": "n3b",
+      "speaker": "青檀",
+      "description": "……话虽如此，行动才能证明。你若当真愿意弥补，便将手放在我的根须上，疏通灵脉。但记住，你每一次的选择，这片土地都在看着。",
+      "options": [
+        { "optionText": "（疏通灵脉）", "targetNodeId": "n5", "actions": [ { "type": 1, "intValue": 10, "stringValue": "" } ] }
+      ]
+    },
+    {
+      "nodeId": "n4",
+      "speaker": "青檀",
+      "description": "将你的手放在我的根须上……对，就是这样。感受灵脉的流向，引导淤堵的灵气重新流动。不要急，让大地的呼吸指引你。前路尚有无数废弃矿坑，你每一次选择，都会改变世界的走向。",
+      "options": [
+        { "optionText": "（疏通灵脉）", "targetNodeId": "n5", "actions": [ { "type": 1, "intValue": 15, "stringValue": "" } ] }
+      ]
+    },
+    {
+      "nodeId": "n5",
+      "speaker": "青檀",
+      "description": "灵脉……通了。我感到力量正在回流，枯枝上似乎有了新芽的迹象。你做到了。这片土地记住了你的善意。墨衡那边的灵晶也会因灵脉恢复而更加充盈——他虽做灵晶生意，但也明白灵脉是根。",
+      "options": [
+        { "optionText": "灵脉以后还会淤堵吗？", "targetNodeId": "n6", "actions": [] },
+        { "optionText": "我该回酒馆复命了", "targetNodeId": "n7", "actions": [ { "type": 7, "intValue": 0, "stringValue": "tavern_quest_complete" } ] }
+      ]
+    },
+    {
+      "nodeId": "n6",
+      "speaker": "青檀",
+      "description": "只要采灵人还在无节制地开采，灵脉终会再次淤堵。真正的治本之法，是让人学会与自然共存。去交易所找墨衡吧，他虽是商人，却比多数人更懂灵脉的价值。若你能说服他节制交易，或许这片土地还有转机。",
+      "options": [
+        { "optionText": "我会去找墨衡谈谈", "targetNodeId": "n7", "actions": [ { "type": 7, "intValue": 0, "stringValue": "tavern_quest_complete" } ] }
+      ]
+    },
+    {
+      "nodeId": "n7",
+      "speaker": "青檀",
+      "description": "去吧，森林会为你指引方向。记住，这片土地的命运，最终取决于你的选择。红袖在酒馆等你，墨衡在交易所等你——他们的选择，也会因你而改变。",
+      "options": [
+        { "optionText": "告别", "targetNodeId": "n_end", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n_end",
+      "speaker": "青檀",
+      "description": "愿你脚下的大地永远柔软，愿你心中的灵脉永不枯竭。",
+      "options": []
+    }
+  ]
+}

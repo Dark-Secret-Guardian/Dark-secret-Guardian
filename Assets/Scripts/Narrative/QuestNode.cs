@@ -11,8 +11,12 @@ public class QuestNode
 {
     public string nodeId;                   // 节点唯一标识符
     public string description;              // 节点描述文本（显示给玩家）
-    public List<QuestCondition> conditions; // 显示条件列表（可选）
+    public string speaker;                  // 说话者名字（NPC 对话用，主线任务可留空）
+    public string portraitPath;             // 立绘 Resources 路径（NPC 对话用）
     public List<QuestOption> options;       // 可选选项列表
+
+    // 条件系统已移至 QuestManager 内部管理，不在此类中存储
+    // （QuestCondition 是抽象类，JsonUtility 无法反序列化）
 }
 
 /// <summary>
@@ -45,7 +49,8 @@ public class QuestAction
         AddGuardianship,  // 增加守护值
         LoadScene,        // 加载场景（stringValue 为场景名称）
         TriggerEnding,    // 触发结局判定
-        StartCombat       // 开始战斗（stringValue 为敌人资源名称）
+        StartCombat,      // 开始战斗（stringValue 为敌人资源名称）
+        SetQuestFlag      // 设置任务标志（stringValue 为 PlayerPrefs key）
     }
 
     public ActionType type;    // 动作类型

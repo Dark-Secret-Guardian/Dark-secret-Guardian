@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.scene
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Tavern.unity
+    guid: ea45e8293e649ff409a7db0b00fd779f
   - enabled: 1
-    path: Assets/Scenes/Scene_Second.scene
-    guid: 8aa6aee11f7bb204ba1d7596c821e333
+    path: Assets/Scenes/Street.unity
+    guid: 702da12be0090434aa2a3f4514e5ad69
+  - enabled: 1
+    path: Assets/Scenes/Exchange.unity
+    guid: 05cf67782f3076b4d84533e76f49cb0d
+  - enabled: 1
+    path: Assets/Scenes/Wilderness.unity
+    guid: 4472c9ce83cd73f44a505a9e184cd37e
   m_BuildProfiles: []
   m_configObjects: {}
   m_SlimFeaturesWeixinMiniGame:

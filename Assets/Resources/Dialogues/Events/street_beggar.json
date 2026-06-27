@@ -1,0 +1,42 @@
+{
+  "npcName": "街角乞丐",
+  "portraitPath": "",
+  "nodes": [
+    {
+      "nodeId": "n0",
+      "speaker": "",
+      "description": "一个衣衫褴褛的老人蜷缩在街角，面前的破碗里空空如也。他抬起浑浊的双眼，向你伸出枯瘦的手。",
+      "options": [
+        { "optionText": "施舍一些灵晶", "targetNodeId": "n1", "actions": [ { "type": 0, "intValue": -2, "stringValue": "" }, { "type": 2, "intValue": 3, "stringValue": "" } ] },
+        { "optionText": "无视，继续走", "targetNodeId": "n2", "actions": [ { "type": 2, "intValue": -1, "stringValue": "" } ] },
+        { "optionText": "坐下来听他的故事", "targetNodeId": "n3", "actions": [ { "type": 2, "intValue": 5, "stringValue": "" } ] }
+      ]
+    },
+    {
+      "nodeId": "n1",
+      "speaker": "乞丐",
+      "description": "老人颤抖着接过灵晶，浑浊的眼中泛起泪光：\"好人……好人啊。愿灵脉庇佑你。\"",
+      "options": []
+    },
+    {
+      "nodeId": "n2",
+      "speaker": "",
+      "description": "你加快脚步走过。身后传来老人微弱的叹息，不知是自语还是对你的背影说的。",
+      "options": []
+    },
+    {
+      "nodeId": "n3",
+      "speaker": "乞丐",
+      "description": "老人说起了从前：\"这地方以前山清水秀，灵脉通畅，人人都不愁吃穿。后来挖灵晶的人越来越多，山秃了，水浑了，连我这把老骨头也快撑不住了。\"",
+      "options": [
+        { "optionText": "继续听", "targetNodeId": "n3b", "actions": [] }
+      ]
+    },
+    {
+      "nodeId": "n3b",
+      "speaker": "乞丐",
+      "description": "\"年轻人，记住老朽一句话——灵脉是根，根断了，再多灵晶也是无本之木。\"老人说完，缩回墙角，闭上了眼。",
+      "options": []
+    }
+  ]
+}

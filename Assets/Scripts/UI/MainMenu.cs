@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using Aesheria.Utils;
 
 namespace Aesheria.UI
 {
@@ -18,11 +17,6 @@ namespace Aesheria.UI
 
         void Start()
         {
-            // 确保中文字体已初始化
-            FontInitializer.EnsureFont();
-            FontInitializer fi = GetComponent<FontInitializer>();
-            if (fi != null) fi.ApplyToAllTexts();
-
             startButton.onClick.AddListener(StartGame);
             quitButton.onClick.AddListener(QuitGame);
         }

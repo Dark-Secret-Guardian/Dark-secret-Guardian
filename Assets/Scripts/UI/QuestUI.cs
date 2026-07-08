@@ -52,6 +52,7 @@ public class QuestUI : MonoBehaviour
         {
             // 实例化按钮预制体
             GameObject btnObj = Instantiate(optionButtonPrefab, optionsContainer);
+            btnObj.SetActive(true);
             TextMeshProUGUI btnText = btnObj.GetComponentInChildren<TextMeshProUGUI>();
             if (btnText != null) btnText.text = opt.optionText;
 

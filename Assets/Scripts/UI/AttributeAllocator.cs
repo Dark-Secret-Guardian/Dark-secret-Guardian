@@ -13,6 +13,7 @@ public class AttributeAllocator : MonoBehaviour
     public TextMeshProUGUI[] valueTexts;   // 6 个属性数值文本
     public TextMeshProUGUI pointsLeftText; // 剩余点数文本
     public Button confirmButton;            // 确认按钮
+    public GameObject questPanel;           // 任务面板（角色创建期间隐藏，避免遮挡确认按钮）
 
     private int[] currentValues = new int[6] { 10, 10, 10, 10, 10, 10 }; // 当前各属性值（默认10）
     private int totalPoints = 20;     // 总可用点数（20点购买）
@@ -24,7 +25,13 @@ public class AttributeAllocator : MonoBehaviour
     void Start()
     {
         remainingPoints = totalPoints;
-        UpdateUI();
+
+        // 角色创建期间隐藏任务面板，避免其 Image 遮挡 ConfirmButton
+        if (questPanel != null)
+            questPanel.SetActive(false);
+
+        UpdateSliderValues();
+        UpdateTexts();
 
         // 绑定每个滑块的值变化事件
         for (int i = 0; i < attributeSliders.Length; i++)
@@ -54,22 +61,28 @@ public class AttributeAllocator : MonoBehaviour
         }
         currentValues[idx] = newValue;
         remainingPoints -= delta;
-        UpdateUI();
+        UpdateTexts();
     }
 
     /// <summary>
-    /// 刷新 UI：更新属性数值文本、剩余点数、确认按钮可用状态
-    /// 确认按钮仅在所有点数分配完毕（剩余点数为0）时可用
+    /// 初始化滑块值（仅在 Start 中调用一次）
     /// </summary>
-    void UpdateUI()
+    void UpdateSliderValues()
     {
         for (int i = 0; i < currentValues.Length; i++)
-        {
-            valueTexts[i].text = currentValues[i].ToString();
             attributeSliders[i].value = currentValues[i];
-        }
+    }
+
+    /// <summary>
+    /// 刷新文本和按钮状态（拖拽过程中调用，不重置滑块值以免打断拖拽）
+    /// 确认按钮仅在所有点数分配完毕（剩余点数为0）时可用
+    /// </summary>
+    void UpdateTexts()
+    {
+        for (int i = 0; i < currentValues.Length; i++)
+            valueTexts[i].text = currentValues[i].ToString();
         pointsLeftText.text = $"剩余点数: {remainingPoints}";
-        confirmButton.interactable = remainingPoints == 0;   // 所有点数分配完毕才可确认
+        confirmButton.interactable = remainingPoints == 0;
     }
 
     /// <summary>
@@ -87,6 +100,10 @@ public class AttributeAllocator : MonoBehaviour
 
         // 传递给 GameManager（会自动初始化战斗属性）
         FindObjectOfType<GameManager>().InitializeCharacterAttributes(attrs);
+
+        // 恢复任务面板显示
+        if (questPanel != null)
+            questPanel.SetActive(true);
 
         // 隐藏角色创建面板
         gameObject.SetActive(false);

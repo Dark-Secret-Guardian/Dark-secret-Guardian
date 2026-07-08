@@ -52,17 +52,12 @@ public class EndingUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 退出游戏
-    /// 根据平台执行不同的退出逻辑
+    /// 返回主菜单
+    /// 恢复时间缩放，加载主菜单场景（build index 0）
     /// </summary>
     void QuitGame()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;   // 编辑器模式：停止播放
-#elif UNITY_WEBGL
-        Application.ExternalEval("window.location.reload();");   // WebGL：刷新页面
-#else
-        Application.Quit();   // 桌面平台：退出应用
-#endif
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
     }
 }
